@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*Auth*/
+
 Auth::routes();
 
+Route::get('logout', function () {
+    Auth::logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+})->name('logout');
+
+/*Main*/
 Route::get('/', 'HomeController@index')->name('index');
+
+/*Estates*/
+Route::get('/estates', 'EstateController@index')->name('estate.index');

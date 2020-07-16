@@ -17,13 +17,24 @@
                     <a class="nav-link text-body" href="#">Fake-immo</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link text-body" href="#">Acheter</a>
+                    <a class="nav-link text-body" href="{{ route('estate.index') }}">Acheter</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link text-body" href="#">Nous contacter</a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link text-body" href="#">Auth(tempo)</a>
+                <li class="nav-item dropdown">
+                    <p class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        User(tempo)
+                    </p>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('login') }}">login</a>
+                        <a class="dropdown-item" href="{{ route('login') }}">register</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Déco</a>
+                        @if (Auth::user())
+                        <p class="dropdown-item">{{ Auth::user()->name }}</p>
+                        @endif
+                    </div>
                 </li>
             </ul>
         </div>
