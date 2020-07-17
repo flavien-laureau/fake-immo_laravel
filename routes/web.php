@@ -30,4 +30,7 @@ Route::get('logout', function () {
 Route::get('/', 'HomeController@index')->name('index');
 
 /*Estates*/
-Route::get('/estates', 'EstateController@index')->name('estate.index');
+Route::get('/estates', 'EstateController@index')->name('estates.index');
+
+/*Admin*/
+Route::get('/admin-panel', 'AdminController@index')->name('backoffice.index')->middleware('App\Http\Middleware\RolesAuth');

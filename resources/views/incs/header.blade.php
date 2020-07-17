@@ -17,7 +17,7 @@
                     <a class="nav-link text-body" href="#">Fake-immo</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link text-body" href="{{ route('estate.index') }}">Acheter</a>
+                    <a class="nav-link text-body" href="{{ route('estates.index') }}">Acheter</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a class="nav-link text-body" href="#">Nous contacter</a>
@@ -29,7 +29,8 @@
                     </p>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('login') }}">login</a>
-                        <a class="dropdown-item" href="{{ route('login') }}">register</a>
+                        <a class="dropdown-item" href="{{ route('backoffice.index') }}">Panel</a>
+                        <a class="dropdown-item" href="{{ route('register') }}">register</a>
                         <a class="dropdown-item" href="{{ route('logout') }}">Déco</a>
                         @if (Auth::user())
                         <p class="dropdown-item">{{ Auth::user()->name }}</p>
