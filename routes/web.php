@@ -31,9 +31,11 @@ Route::get('/', 'HomeController@index')->name('index');
 
 /*Estates*/
 Route::get('/estates', 'EstateController@index')->name('estates.index');
+Route::get('/estate/{id}', 'EstateController@show')->name('estates.show');
 
 /*Admin*/
-Route::get('/admin-panel', 'AdminController@index')->name('admin.index')->middleware('App\Http\Middleware\RolesAuth');
-Route::post('/admin-panel/store', 'AdminController@store')->name('admin.store')/* ->middleware('App\Http\Middleware\RolesAuth') */;
+Route::get('/admin-panel', 'AdminController@index')->name('admin.index');
+Route::post('/admin-panel/store', 'AdminController@store')->name('admin.store');
 Route::get('/admin-panel/estate/{id}/edit', 'AdminController@edit')->name('admin.edit');
 Route::put('/admin-panel/estate/{id}/update', 'AdminController@update')->name('admin.update');
+Route::get('/admin-panel/estate/{id}/destroy', 'AdminController@destroy')->name('admin.destroy');

@@ -17,7 +17,7 @@ class EstateSeeder extends Seeder
         $estate->title = "Petite maison";
         $estate->description = "Description" . " de " . $estate->title;
         $estate->type = "house";
-        $estate->image = "imgMaison2.jpg";
+        $estate->image = "imgMaison1.jpg";
         $estate->rooms = 7;
         $estate->square_meters = 120;
         $estate->price = 180000;

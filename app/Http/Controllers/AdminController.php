@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Estate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('App\Http\Middleware\RolesAuth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -104,6 +109,15 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estate = Estate::find($id);
+        $fileToDelete = 'public/img_maisons/' . $estate->image;
+
+        if (Storage::exists($fileToDelete)) {
+            Storage::delete($fileToDelete);
+        }
+
+        $estate->delete();
+
+        return redirect()->route('admin.index');
     }
 }

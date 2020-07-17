@@ -30,11 +30,13 @@
                         <td>{{ $estate->price }} €</td>
                         <td>{{ $estate->admin->name }}</td>
                         <td class="d-flex justify-content-around">
-                            <i class="far fa-eye"></i>
-                            <a href="{{ route('admin.edit', $estate->id) }}">
+                            <a href="{{ route('estates.show', $estate->id) }}" class="text-body"><i
+                                    class="far fa-eye"></i></a>
+                            <a href="{{ route('admin.edit', $estate->id) }}" class="text-body">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <i class="fas fa-trash-alt"></i>
+                            <a href="{{ route('admin.destroy', $estate->id) }}" class="text-body"><i
+                                    class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                     @endforeach

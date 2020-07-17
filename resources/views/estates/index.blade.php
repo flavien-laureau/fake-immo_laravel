@@ -12,7 +12,7 @@
                     alt="Illustration du bien" />
             </figure>
             <div class="card w-100 rounded-0 col-md-6">
-                <a href="#">
+                <a href="{{ route('estates.show', $estate->id) }}">
                     <div class="card-body">
                         <h3>{{ $estate->title }}</h3>
                         <p>{{ $estate->description }}</p>
