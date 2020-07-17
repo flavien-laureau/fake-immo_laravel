@@ -11,6 +11,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('backoffice/images/favicon.png')}}">
     <title>Admin fake-immo</title>
+
+    <!-- Scripts -->
     <script src="https://kit.fontawesome.com/a684846f6a.js" crossorigin="anonymous"></script>
     <!-- This page plugin CSS -->
     <link href="{{asset('backoffice/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css')}}" rel="stylesheet">
@@ -26,8 +28,33 @@
 </head>
 
 <body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
 
-    @yield('content')
+        @include('incs.backoffice.header')
+        @include('incs.backoffice.sidebar')
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+            <footer class="footer text-center text-muted">
+                All Rights Reserved by Adminmart. Designed and Developed by <a
+                    href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+        </div>
+    </div>
+
+    @include('incs.backoffice.modal')
     <script src="{{asset('backoffice/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('backoffice/libs/popper.js/dist/umd/popper.min.js')}}"></script>

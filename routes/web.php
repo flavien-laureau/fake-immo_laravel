@@ -33,4 +33,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/estates', 'EstateController@index')->name('estates.index');
 
 /*Admin*/
-Route::get('/admin-panel', 'AdminController@index')->name('backoffice.index')->middleware('App\Http\Middleware\RolesAuth');
+Route::get('/admin-panel', 'AdminController@index')->name('admin.index')->middleware('App\Http\Middleware\RolesAuth');
+Route::post('/admin-panel/store', 'AdminController@store')->name('admin.store')/* ->middleware('App\Http\Middleware\RolesAuth') */;
+Route::get('/admin-panel/estate/{id}/edit', 'AdminController@edit')->name('admin.edit');
+Route::put('/admin-panel/estate/{id}/update', 'AdminController@update')->name('admin.update');

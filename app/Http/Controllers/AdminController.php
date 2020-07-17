@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -21,16 +22,6 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,18 +29,25 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $estate = new Estate;
+        $estate->title = $request->input("title");
+        $estate->type = $request->input("type");
+        $estate->description = $request->input("description");
+        $estate->rooms = $request->input("rooms");
+        $estate->square_meters = $request->input("squareMeters");
+        $estate->price = $request->input("price");
+        $estate->admin_id = Auth::user()->id;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $image = $request->file('image');
+        $imageFullName = $image->getClientOriginalName();
+        $imageName = pathinfo($imageFullName, PATHINFO_FILENAME);
+        $extension = $image->getClientOriginalExtension();
+        $file = time() . '_' . $imageName . '.' . $extension;
+        $image->storeAs('public/img_maisons', $file);
+
+        $estate->image = $file;
+        $estate->save();
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -60,7 +58,11 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estate = Estate::find($id);
+
+        return view('backoffice.edit', [
+            'estate' => $estate
+        ]);
     }
 
     /**
@@ -72,7 +74,26 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estate = Estate::find($id);
+        $estate->title = $request->input("title");
+        $estate->type = $request->input("type");
+        $estate->description = $request->input("description");
+        $estate->rooms = $request->input("rooms");
+        $estate->square_meters = $request->input("squareMeters");
+        $estate->price = $request->input("price");
+
+        if ($request->file('image')) {
+            $image = $request->file('image');
+            $imageFullName = $image->getClientOriginalName();
+            $imageName = pathinfo($imageFullName, PATHINFO_FILENAME);
+            $extension = $image->getClientOriginalExtension();
+            $file = time() . '_' . $imageName . '.' . $extension;
+            $image->storeAs('public/img_maisons', $file);
+            $estate->image = $file;
+        }
+
+        $estate->save();
+        return redirect()->route('admin.index');
     }
 
     /**

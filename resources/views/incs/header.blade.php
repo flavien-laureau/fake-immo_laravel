@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('index') }}"><img src="{{ asset("/img/logo.jpg") }}" alt="logo"
-                class="w-50"></a>
+        <a class="navbar-brand" href="{{ route('index') }}">
+            <img src="{{ asset("/img/logo.jpg") }}" alt="logo" class="w-50">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,11 +29,13 @@
                         User(tempo)
                     </p>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        @if (!Auth::user())
                         <a class="dropdown-item" href="{{ route('login') }}">login</a>
-                        <a class="dropdown-item" href="{{ route('backoffice.index') }}">Panel</a>
                         <a class="dropdown-item" href="{{ route('register') }}">register</a>
-                        <a class="dropdown-item" href="{{ route('logout') }}">Déco</a>
+                        @endif
                         @if (Auth::user())
+                        <a class="dropdown-item" href="{{ route('admin.index') }}">Panel</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Déco</a>
                         <p class="dropdown-item">{{ Auth::user()->name }}</p>
                         @endif
                     </div>
