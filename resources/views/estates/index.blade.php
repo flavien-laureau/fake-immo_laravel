@@ -8,7 +8,7 @@
         @foreach ($estates as $estate)
         <div class="d-flex my-3 row">
             <figure class="m-0 p-0 col-md-6">
-                <img class="img h-100 col-12 p-0" src="{{ "/storage/img_maisons/" . $estate->image }}"
+                <img class="img h-100 col-12 p-0" src="{{ "/storage/img_estates/" . $estate->image }}"
                     alt="Illustration du bien" />
             </figure>
             <div class="card w-100 rounded-0 col-md-6">

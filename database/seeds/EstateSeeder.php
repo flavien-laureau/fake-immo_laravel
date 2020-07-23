@@ -21,7 +21,7 @@ class EstateSeeder extends Seeder
         $estate->rooms = 7;
         $estate->square_meters = 120;
         $estate->price = 180000;
-        $estate->admin_id = User::where('name', 'Jean')->firstOrfail()->id;
+        $estate->admin_id = User::where('firstname', 'Jean')->firstOrfail()->id;
         $estate->save();
 
         $estate = new Estate();
@@ -32,7 +32,7 @@ class EstateSeeder extends Seeder
         $estate->rooms = 6;
         $estate->square_meters = 100;
         $estate->price = 100000;
-        $estate->admin_id = User::where('name', 'Jean')->firstOrfail()->id;
+        $estate->admin_id = User::where('firstname', 'Jean')->firstOrfail()->id;
         $estate->save();
 
         $estate = new Estate();
@@ -43,7 +43,7 @@ class EstateSeeder extends Seeder
         $estate->rooms = 4;
         $estate->square_meters = 95;
         $estate->price = 100000;
-        $estate->admin_id = User::where('name', 'Jean')->firstOrfail()->id;
+        $estate->admin_id = User::where('firstname', 'Jean')->firstOrfail()->id;
         $estate->save();
     }
 }

@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label><br>
-                    <img src="/storage/img_maisons/{{ $estate->image }}" class="my-2 w-25" />
+                    <img src="/storage/img_estates/{{ $estate->image }}" class="my-2 w-25" />
                     <input type="file" name="image" class="form-control-file" id="image">
                 </div>
                 <div class="form-group">

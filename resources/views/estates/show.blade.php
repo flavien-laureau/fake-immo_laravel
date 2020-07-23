@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body text-center">
             <h2 class="card-title">{{ $estate->title }}</h2>
-            <img src="{{'/storage/img_maisons/'.$estate->image}}" class="w-50" />
+            <img src="{{'/storage/img_estates/'.$estate->image}}" class="w-50" />
             <p>{{ $estate->description }}</p>
             <p>{{ $estate->price }}€</p>
         </div>

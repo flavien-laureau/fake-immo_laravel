@@ -49,3 +49,10 @@ body {
 .img {
     object-fit: cover;
 }
+
+/*User.profile*/
+#img-file-label {
+    margin: 0 15px;
+}
+
+#file-upload-filename {}

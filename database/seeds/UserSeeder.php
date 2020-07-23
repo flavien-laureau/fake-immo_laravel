@@ -17,8 +17,10 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'admin')->firstOrfail();
 
         $user = new User();
-        $user->name = 'Jean';
+        $user->firstname = 'Jean';
+        $user->lastname = 'Machin';
         $user->email = 'jean@gmail.com';
+        $user->address_id = 1;
         $user->password = Hash::make('password');
         $user->role_id = $role->id;
         $user->save();
@@ -26,8 +28,10 @@ class UserSeeder extends Seeder
         $role = Role::where('name', 'customer')->firstOrfail();
 
         $user = new User();
-        $user->name = 'Marie';
+        $user->firstname = 'Marie';
+        $user->lastname = 'Machine';
         $user->email = 'marie@gmail.com';
+        $user->address_id = 2;
         $user->password = Hash::make('password');
         $user->role_id = $role->id;
         $user->save();

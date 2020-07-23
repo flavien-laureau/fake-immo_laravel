@@ -23,12 +23,12 @@
                     @foreach ($estates as $estate)
                     <tr>
                         <td>{{ $estate->title }}</td>
-                        <td><img class="estate_img col-12 p-0" src="{{ "/storage/img_maisons/" . $estate->image }}"
+                        <td><img class="estate_img col-12 p-0" src="{{ "/storage/img_estates/" . $estate->image }}"
                                 alt=""></td>
                         <td>adresse</td>
                         <td>{{ $estate->description }}</td>
                         <td>{{ $estate->price }} €</td>
-                        <td>{{ $estate->admin->name }}</td>
+                        <td>{{ $estate->admin->firstname }}</td>
                         <td class="d-flex justify-content-around">
                             <a href="{{ route('estates.show', $estate->id) }}" class="text-body"><i
                                     class="far fa-eye"></i></a>

@@ -43,3 +43,7 @@ Route::get('/admin-panel/estate/{id}/destroy', 'AdminController@destroy')->name(
 /*Customer*/
 Route::get('/customer/estate/{id}/select', 'CustomerController@select')->name('customer.select');
 Route::get('/customer/estate/{id}/unselect', 'CustomerController@unselect')->name('customer.unselect');
+
+/*User*/
+Route::get('/user/profile', 'UserController@index')->name('user.profile');
+Route::put('/user/profile/update', 'UserController@update')->name('user.update');

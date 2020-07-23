@@ -36,7 +36,7 @@
                         @if (Auth::user())
                         <a class="dropdown-item" href="{{ route('admin.index') }}">Panel</a>
                         <a class="dropdown-item" href="{{ route('logout') }}">Déco</a>
-                        <p class="dropdown-item">{{ Auth::user()->name }}</p>
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">{{ Auth::user()->firstname }}</a>
                         @endif
                     </div>
                 </li>

@@ -48,7 +48,7 @@ class AdminController extends Controller
         $imageName = pathinfo($imageFullName, PATHINFO_FILENAME);
         $extension = $image->getClientOriginalExtension();
         $file = time() . '_' . $imageName . '.' . $extension;
-        $image->storeAs('public/img_maisons', $file);
+        $image->storeAs('public/img_estates', $file);
 
         $estate->image = $file;
         $estate->save();
@@ -93,7 +93,7 @@ class AdminController extends Controller
             $imageName = pathinfo($imageFullName, PATHINFO_FILENAME);
             $extension = $image->getClientOriginalExtension();
             $file = time() . '_' . $imageName . '.' . $extension;
-            $image->storeAs('public/img_maisons', $file);
+            $image->storeAs('public/img_estates', $file);
             $estate->image = $file;
         }
 
@@ -110,7 +110,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $estate = Estate::find($id);
-        $fileToDelete = 'public/img_maisons/' . $estate->image;
+        $fileToDelete = 'public/img_estates/' . $estate->image;
 
         if (Storage::exists($fileToDelete)) {
             Storage::delete($fileToDelete);
