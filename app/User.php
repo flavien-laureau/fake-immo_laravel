@@ -42,8 +42,13 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
-    public function estates()
+    public function AdminEstates()
     {
         return $this->hasMany('App\Estate');
+    }
+
+    public function customerEstatesSelect()
+    {
+        return $this->belongsToMany('App\Estate');
     }
 }

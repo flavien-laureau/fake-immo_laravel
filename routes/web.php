@@ -39,3 +39,7 @@ Route::post('/admin-panel/store', 'AdminController@store')->name('admin.store');
 Route::get('/admin-panel/estate/{id}/edit', 'AdminController@edit')->name('admin.edit');
 Route::put('/admin-panel/estate/{id}/update', 'AdminController@update')->name('admin.update');
 Route::get('/admin-panel/estate/{id}/destroy', 'AdminController@destroy')->name('admin.destroy');
+
+/*Customer*/
+Route::get('/customer/estate/{id}/select', 'CustomerController@select')->name('customer.select');
+Route::get('/customer/estate/{id}/unselect', 'CustomerController@unselect')->name('customer.unselect');

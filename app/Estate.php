@@ -10,4 +10,9 @@ class Estate extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function customer()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

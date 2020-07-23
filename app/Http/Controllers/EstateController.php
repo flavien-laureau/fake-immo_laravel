@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Estate;
+use App\EstateUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EstateController extends Controller
 {
@@ -15,10 +17,18 @@ class EstateController extends Controller
     public function index()
     {
         $estates = Estate::all();
+        if (Auth::user()) {
+            $estateUser = EstateUser::where("user_id", Auth::user()->id)->get();
 
-        return view('estates.index', [
-            'estates' => $estates
-        ]);
+            return view('estates.index', [
+                'estates' => $estates,
+                'selected' => $estateUser
+            ]);
+        } else {
+            return view('estates.index', [
+                'estates' => $estates
+            ]);
+        }
     }
 
     /**
