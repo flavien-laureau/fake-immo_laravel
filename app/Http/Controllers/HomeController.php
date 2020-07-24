@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Estate;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $estates = Estate::limit(5)->get();
+
+        return view('index', [
+            'estates' => $estates
+        ]);
     }
 }

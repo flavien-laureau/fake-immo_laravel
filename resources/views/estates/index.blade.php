@@ -20,8 +20,10 @@
                         <p>{{ $estate->price }}</p>
                     </div>
                 </a>
-                @if (Auth::user())
                 <div class="card-body">
+                    @if (Auth::user())
+                    @if (Auth::user()->role->name == 'customer')
+
                     <p>
                         @if (count($selected) != 0)
                         @foreach ($selected as $key => $item)
@@ -43,8 +45,14 @@
 
                         Ma sélection
                     </p>
+
+                    @elseif(Auth::user()->role->name == 'admin')
+                    <a href="{{ route('admin.edit', $estate->id) }}">Modifier</a>
+                    @endif
+                    @elseif(!Auth::user())
+                    <p><a href="{{ route('login') }}"><i class="far fa-heart fa-2x text-body"></i></a> Ma sélection</p>
+                    @endif
                 </div>
-                @endif
             </div>
         </div>
         @endforeach

@@ -26,24 +26,24 @@ Route::get('logout', function () {
     return Redirect::to('/');
 })->name('logout');
 
-/*Main*/
+/*Main*/ /*No protected*/
 Route::get('/', 'HomeController@index')->name('index');
 
-/*Estates*/
+/*Estates*/ /*No protected*/
 Route::get('/estates', 'EstateController@index')->name('estates.index');
 Route::get('/estate/{id}', 'EstateController@show')->name('estates.show');
 
-/*Admin*/
+/*Admin*/ /*Role admin protected*/
 Route::get('/admin-panel', 'AdminController@index')->name('admin.index');
 Route::post('/admin-panel/store', 'AdminController@store')->name('admin.store');
 Route::get('/admin-panel/estate/{id}/edit', 'AdminController@edit')->name('admin.edit');
 Route::put('/admin-panel/estate/{id}/update', 'AdminController@update')->name('admin.update');
 Route::get('/admin-panel/estate/{id}/destroy', 'AdminController@destroy')->name('admin.destroy');
 
-/*Customer*/
+/*Customer*/ /*Auth protected*/
 Route::get('/customer/estate/{id}/select', 'CustomerController@select')->name('customer.select');
 Route::get('/customer/estate/{id}/unselect', 'CustomerController@unselect')->name('customer.unselect');
 
-/*User*/
+/*User*/ /*Auth protected*/
 Route::get('/user/profile', 'UserController@index')->name('user.profile');
 Route::put('/user/profile/update', 'UserController@update')->name('user.update');

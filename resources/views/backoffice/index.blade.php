@@ -23,8 +23,8 @@
                     @foreach ($estates as $estate)
                     <tr>
                         <td>{{ $estate->title }}</td>
-                        <td><img class="estate_img col-12 p-0" src="{{ "/storage/img_estates/" . $estate->image }}"
-                                alt=""></td>
+                        <td><img id="img-table-panel" class="estate_img col-12 p-0"
+                                src="{{ "/storage/img_estates/" . $estate->image }}" alt=""></td>
                         <td>adresse</td>
                         <td>{{ $estate->description }}</td>
                         <td>{{ $estate->price }} €</td>

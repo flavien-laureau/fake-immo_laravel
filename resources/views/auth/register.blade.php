@@ -92,6 +92,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('S\'inscrire') }}
                                 </button>
+                                <a class="ml-3 btn btn-link" href="{{ route('login') }}">
+                                    Déjà inscrit ?
+                                </a>
                             </div>
                         </div>
                     </form>
